@@ -1,6 +1,6 @@
 from fastapi import  FastAPI
 from src.schemas import UserCreate, UserRead, UserUpdate
-from src.auth.users import auth_backend,  fastapi_users
+from src.auth.users import users_router,user_crud,user_oauth_outer,bearer_router
 from src.employee import ext_router as user_extender_router
 from src.company import cmp_router as company_router
 from settings import config
@@ -22,6 +22,22 @@ contact_dict = dict(name=config['CONTACT_NAME'],
                                   )
 app = FastAPI(title=config['API_TITLE'],description=config['API_DESCRIPTION'],contact=contact_dict,openapi_tags=TAGS_META)
 
+
+
+#   R O U T E R S 
+# User AUTH Routers
+
+app.include_router(users_router,tags=['OAuth2 Flow And User Management Routes'])
+app.include_router(user_crud,tags=['User CRUD methods'])
+app.include_router(user_oauth_outer,tags=['OAuth2 Connected Outer Services Methods'])
+app.include_router(bearer_router,tags=['Token [Bearer] Transport Routes'])
+
+
+
+
+
+
+
 # Employee Router - Imported from module employee.py
 app.include_router(
     user_extender_router,tags=['Employee Methods']
@@ -31,53 +47,7 @@ app.include_router(
     company_router,tags=['Company Methods ']
     )
 
-# users backend
-app.include_router(
-    fastapi_users.get_auth_router(auth_backend), prefix="/auth/jwt", tags=["Login / Logout Methods"]
-)
-app.include_router(
-    fastapi_users.get_register_router(UserRead, UserCreate),
-    prefix="/auth",
-    tags=["Register User Methods"],
-)
-app.include_router(
-    fastapi_users.get_reset_password_router(),
-    prefix="/auth",
-    tags=["Reset Password Methods"],
-)
-app.include_router(
-    fastapi_users.get_verify_router(UserRead),
-    prefix="/auth",
-    tags=["Veryfy Methods"],
-)
-app.include_router(
-    fastapi_users.get_users_router(UserRead, UserUpdate),
-    prefix="/users",
-    tags=["User CRUD Methods"],
-)
 
-
-# @app.get("/drop-create",tags=['Base Migrations Method'])
-# async def metadata_route(command:str = None):
-#     """Dev usage cludge:
-#     For making migrations use this route by writing in command query - create_all | drop_all
-
-#     "details":\n
-#                 {
-#                 "drop_all": "deletes all tables in database",
-#                 "create_all": "creates all tables using Metadata object."
-#                 }
-#     """
-#     if command:
-#         match command:
-#             case "create_all":
-#                 async with engine.begin() as conn:
-#                     await conn.run_sync(Base.metadata.create_all)
-#             case "drop_all":
-#                 async with engine.begin() as conn:
-#                     await conn.run_sync(Base.metadata.drop_all)
-                    
-#     return {"message": f"Hello Word!" }
 
 
 import importlib

@@ -3,8 +3,7 @@ from starlette.responses import JSONResponse
 from src.auth.users import *
 from src.models import Company
 from fastapi import APIRouter, Depends, HTTPException
-from src.auth.users import fastapi_users
-from src.auth.users import *
+from src.auth.users import current_active_user,current_superuser
 from sqlalchemy.exc import SQLAlchemyError
 from src.models import User, Employee
 from starlette import status
@@ -16,7 +15,11 @@ from starlette import status
 from fastapi_cache.decorator import cache as cache_decorator
 from fastapi_redis_cache import cache_one_minute
 from src.custom_responses import *
-current_user = fastapi_users.current_user(active=True)
+
+
+
+# MOCK OBJECT 
+current_user = current_active_user
 
 
 cmp_router = APIRouter(prefix="/company",

@@ -14,7 +14,7 @@ Base: DeclarativeMeta = declarative_base()
 UUID_ID = uuid.UUID
 
 
-class User(SQLAlchemyBaseUserTable[int], Base):
+class User(Base):
     """
     User table with obvious and visible fields and options.
     
@@ -24,7 +24,7 @@ class User(SQLAlchemyBaseUserTable[int], Base):
     full_name: Mapped[str] = mapped_column(String,nullable=False)
     email: Mapped[str] = mapped_column(String, unique=True,nullable=False)
     phone: Mapped[str] = mapped_column(String,unique=True, nullable=False)
-    picture: Mapped[str] = mapped_column(String)
+    picture: Mapped[str] = mapped_column(String) # bytestring maybe
     birth_date: Mapped[date] = mapped_column(Date,nullable=True) 
     hashed_password: Mapped[str] = mapped_column(String, nullable=False)
     is_active: Mapped[bool] = mapped_column(Boolean, default=True)

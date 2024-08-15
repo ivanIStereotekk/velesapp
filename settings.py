@@ -16,7 +16,7 @@ config = dotenv_values(f"{root_dir}/.env")
 if config['PRODUCTION_BUILD'] == 'True':   #### This param true/false  while docker build
     PG_HOST = config["PG_CONT_NAME"] # While docker - compose build this takes url as cont name
 elif config['PRODUCTION_BUILD'] == 'False':
-    PG_DOCKER_RUN_DEV_MODE = config['DEV_DOCKER_POSTGRES_CMD']
+    PG_DOCKER_RUN_DEV_MODE = config['DOCKER_POSTGRES_UP']
     PG_HOST = config["POSTGRES_HOST_LOCAL"]  
     # N O T I C E   ---    While building app with docker-compose this part running "docker run postgres container"
     os.system(PG_DOCKER_RUN_DEV_MODE)            
