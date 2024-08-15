@@ -86,7 +86,7 @@ TAGS_META = [
 
     },
     {
-        "name": "5 - Company CRUD",
+        "name": "5 - Company CRUD Methods",
         "description": "CRUD Company Creation and managing persistent data elements, particularly Company's",
         "externalDocs": {
             "description": "Any question?",
@@ -96,7 +96,7 @@ TAGS_META = [
 
     },
     {
-        "name": "6 - Employee CRUD",
+        "name": "6 - Employee CRUD Methods",
         "description": "CRUD Creation and managing persistent data elements, particularly user's that have Employment in company",
         "externalDocs": {
             "description": "Any question?",
@@ -104,4 +104,5 @@ TAGS_META = [
         
         },
     },
+
 ]

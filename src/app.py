@@ -28,7 +28,7 @@ app = FastAPI(title=config['API_TITLE'],description=config['API_DESCRIPTION'],co
 # User AUTH Routers
 
 app.include_router(users_router,tags=['OAuth2 Flow And User Management Routes'])
-app.include_router(user_crud,tags=['User CRUD methods'])
+app.include_router(user_crud,tags=['User CRUD Methods'])
 app.include_router(user_oauth_outer,tags=['OAuth2 Connected External Services Methods'])
 app.include_router(bearer_router,tags=['Token [Bearer] Transport Routes'])
 
