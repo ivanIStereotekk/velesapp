@@ -28,7 +28,7 @@ bearer_router = APIRouter(prefix="/bearer",
     responses=ROUTER_API_RESPONSES_OPEN_API
 )
 
-user_crud = APIRouter(prefix="/crud",
+user_crud = APIRouter(prefix="/users",
     responses=ROUTER_API_RESPONSES_OPEN_API
 )
 
