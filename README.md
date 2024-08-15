@@ -1,11 +1,11 @@
 ** Users management **
 
 > [!NOTE]
-> Приложение для - Auth User Management ( В процессе разработки ).
+> New fork with OAuth2 JWT implementation.
+>       - working hard -
 
 
-### Auth User App - Микросервис 
-
+### With OAuth2 JWT implementation.
 ```.env
 IN_DOCKER_BUILD='False'
 POSTGRES_HOST_DOCKER=pgbase
