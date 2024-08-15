@@ -7,23 +7,42 @@
 
 ### With OAuth2 JWT implementation.
 ```.env
-IN_DOCKER_BUILD='False'
-POSTGRES_HOST_DOCKER=pgbase
+
+PRODUCTION_BUILD='False'
+PG_CONT_NAME=postgres_db
+
+
+# addres while run in local
 POSTGRES_HOST_LOCAL=localhost
+
 POSTGRES_PASSWORD=secret123
 POSTGRES_USER=postgres
+
+
+# If it is not specified, then the value of POSTGRES_USER will be used.
 POSTGRES_DB=postgres
-SECRET_TOKEN=secret
 POSTGRES_PORT=5432
-DEV_DOKER_POSTGRES_CMD='docker run -it --name pgbase -e POSTGRES_PASSWORD=secret123 -p 5432:5432 -d postgres:latest'
+# This cmd command will run docker container
+DOCKER_POSTGRES_UP='docker run -it --name postgres -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=secret123 -p 5432:5432 -d postgres:latest'
+
+# Change while production
+SECRET_TOKEN=secret
+JWT_REFRESH_SECRET_KEY=secretKey
+JWT_SECRET_KEY=secretKey
 JWT_TOKEN_LIFETIME=3600
-CACHE_EXP=90
-LOCAL_REDIS_URL='redis://localhost'
-CACHE_PREFIX='veles-app'
+ACCESS_TOKEN_EXPIRE_MINUTES=30  # 30 min
+REFRESH_TOKEN_EXPIRE_MINUTES=10080 # 7 days
+ALGORITHM ="HS256"
+CACHE_EXP=3600
+# Notice difference !
+DEV_REDIS_URL='redis://localhost'
+PROD_REDIS_URL = 'redis://redis_cache'
+
+CACHE_PREFIX='Veles-app:'
 CONTACT_NAME='Ivan Goncharov'
 CONTACT_EMAIL='ivan.stereotekk@gmail.com'
-API_TITLE='User Management Access - web application'
-API_DESCRIPTION='VELES company user management REST methods'
+API_TITLE='User Access Management  - [ web application ]'
+API_DESCRIPTION='VELES - App for the build methods!'
 
 ```
 
