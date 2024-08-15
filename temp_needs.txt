@@ -1,4 +1,0 @@
-grpc / http framework https://github.com/bali-framework/bali
-
-
-sql wrapper https://github.com/jpsca/sqla-wrapper/tree/main
