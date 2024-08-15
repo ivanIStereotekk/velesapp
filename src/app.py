@@ -29,7 +29,7 @@ app = FastAPI(title=config['API_TITLE'],description=config['API_DESCRIPTION'],co
 
 app.include_router(users_router,tags=['OAuth2 Flow And User Management Routes'])
 app.include_router(user_crud,tags=['User CRUD methods'])
-app.include_router(user_oauth_outer,tags=['OAuth2 Connected Outer Services Methods'])
+app.include_router(user_oauth_outer,tags=['OAuth2 Connected External Services Methods'])
 app.include_router(bearer_router,tags=['Token [Bearer] Transport Routes'])
 
 
@@ -40,11 +40,11 @@ app.include_router(bearer_router,tags=['Token [Bearer] Transport Routes'])
 
 # Employee Router - Imported from module employee.py
 app.include_router(
-    user_extender_router,tags=['Employee Methods']
+    user_extender_router,tags=['Employee CRUD Methods']
     )
 # company Router - cmp.py
 app.include_router(
-    company_router,tags=['Company Methods ']
+    company_router,tags=['Company CRUD Methods ']
     )
 
 

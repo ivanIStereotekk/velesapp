@@ -46,8 +46,8 @@ JWT_REFRESH_SECRET_KEY = config['JWT_REFRESH_SECRET_KEY']
 # Open API tags 
 TAGS_META = [
     {
-        "name": "Users",
-        "description": "***User Management Authentication[UMA]*** methods flow. Registration, Authentication, Reset password, typical UMA user flow.",
+        "name": "1 - OAuth2 Flow And UMA Methods",
+        "description": "Endpoints that handling user registration, login/logout, password-reset things.",
         "externalDocs": {
             "description": "Any question?",
             "url": "https://t.me/ewanG808",
@@ -56,8 +56,8 @@ TAGS_META = [
 
     },
     {
-        "name": "Company",
-        "description": "***Company*** ORM model and it's methods for making CRUD operations. Company - represents company item with data fields.",
+        "name": "2 - User CRUD Methods",
+        "description": "CRUD is the acronym for CREATE, READ, UPDATE and DELETE. Creation and managing persistent data elements, particularly User's",
         "externalDocs": {
             "description": "Any question?",
             "url": "https://t.me/ewanG808",
@@ -66,8 +66,38 @@ TAGS_META = [
 
     },
     {
-        "name": "Employee",
-        "description": "***Employee*** Methods for ORM model that extends User model. Employee - gives additional data structure to user that became as employee. Logically user may change the employment position so someone may substitute **user** on particular position. When particular _user_ is unemployed he has no Employee table...\nThis table extends user which works in the company on a position.",
+        "name": "3 - Token Bearer Transport Routes",
+        "description": "Token verification and refresh methods",
+        "externalDocs": {
+            "description": "Any question?",
+            "url": "https://t.me/ewanG808",
+        
+        },
+
+    },
+    {
+        "name": "4 - OAuth2 Connected External Services Methods",
+        "description": "OAuth2 flow to request permission to access a user's data, redirect OAuth 2.0 server, etc...",
+        "externalDocs": {
+            "description": "Any question?",
+            "url": "https://t.me/ewanG808",
+        
+        },
+
+    },
+    {
+        "name": "5 - Company CRUD",
+        "description": "CRUD Company Creation and managing persistent data elements, particularly Company's",
+        "externalDocs": {
+            "description": "Any question?",
+            "url": "https://t.me/ewanG808",
+        
+        },
+
+    },
+    {
+        "name": "6 - Employee CRUD",
+        "description": "CRUD Creation and managing persistent data elements, particularly user's that have Employment in company",
         "externalDocs": {
             "description": "Any question?",
             "url": "https://t.me/ewanG808",
